@@ -1,36 +1,53 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+// Invoria Jobs - Fullstack Starter (Frontend Next.js + Supabase backend)
+// Cara pakai:
+// 1. Upload ke GitHub
+// 2. Deploy ke Vercel
+// 3. Tambahkan ENV dari Supabase
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+import { useState } from "react";
 
-# testing
-/coverage
+export default function Home() {
+  const [role, setRole] = useState("user");
 
-# next.js
-/.next/
-/out/
+  return (
+    <div className="min-h-screen bg-white text-blue-900 p-6">
+      <h1 className="text-3xl font-bold mb-4">Invoria Jobs</h1>
 
-# production
-/build
+      <div className="mb-4">
+        <button onClick={() => setRole("user")} className="mr-2 p-2 bg-blue-900 text-white rounded">Pelamar</button>
+        <button onClick={() => setRole("company")} className="p-2 bg-yellow-500 text-white rounded">Perusahaan</button>
+      </div>
 
-# misc
-.DS_Store
-*.pem
+      {role === "user" ? <UserForm /> : <CompanyForm />}
+    </div>
+  );
+}
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+function UserForm() {
+  return (
+    <div className="bg-gray-100 p-4 rounded">
+      <h2 className="text-xl mb-2">Registrasi Pelamar</h2>
+      <input placeholder="Email" className="block mb-2 p-2 w-full" />
+      <input placeholder="Password" type="password" className="block mb-2 p-2 w-full" />
+      <input placeholder="Nama" className="block mb-2 p-2 w-full" />
+      <input placeholder="Tanggal Lahir" type="date" className="block mb-2 p-2 w-full" />
+      <input placeholder="Domisili" className="block mb-2 p-2 w-full" />
+      <input type="file" className="block mb-2" />
+      <button className="bg-blue-900 text-white p-2 rounded">Daftar</button>
+    </div>
+  );
+}
 
-# local env files
-.env*.local
-.env
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+function CompanyForm() {
+  return (
+    <div className="bg-gray-100 p-4 rounded">
+      <h2 className="text-xl mb-2">Registrasi Perusahaan</h2>
+      <input placeholder="Email Perusahaan" className="block mb-2 p-2 w-full" />
+      <input placeholder="Password" type="password" className="block mb-2 p-2 w-full" />
+      <input placeholder="Nama Perusahaan" className="block mb-2 p-2 w-full" />
+      <input placeholder="Alamat" className="block mb-2 p-2 w-full" />
+      <textarea placeholder="Deskripsi" className="block mb-2 p-2 w-full" />
+      <button className="bg-yellow-500 text-white p-2 rounded">Daftar</button>
+    </div>
+  );
+}
