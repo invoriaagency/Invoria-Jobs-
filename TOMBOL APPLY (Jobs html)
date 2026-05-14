@@ -1,3 +1,21 @@
-<button onclick="applyJob('JOB_ID_DISINI')">
-  Apply
-</button>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Jobs</title>
+</head>
+<body>
+
+  <h1>List Jobs</h1>
+
+  <div>
+    <h3>Frontend Developer</h3>
+    <button onclick="applyJob('JOB_ID_DISINI')">
+      Apply
+    </button>
+  </div>
+
+  <script type="module" src="apply.js"></script>
+
+</body>
+</html>
