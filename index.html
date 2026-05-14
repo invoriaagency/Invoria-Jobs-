@@ -1,9 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoria Jobs</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      text-align: center;
+    }
+    h1 {
+      background: #007bff;
+      color: white;
+      padding: 15px;
+    }
+    .job {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Invoria Jobs</h1>
+<h2>Lowongan Terbaru</h2>
+
+<div id="jobs"></div>
+
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
 const supabase = window.supabase.createClient(
-  "https://twhmsejnxieawhtoezli.supabase.co"
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3aG1zZWpueGllYXdodG9lemxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3MTgyOTAsImV4cCI6MjA5NDI5NDI5MH0.X8nRWvjKJSI4ddeYsQYFpKte_4h3X9iNnpa3RzVXwnI"
+  "https://twhmsejnxieawhtoezli.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3aG1zZWpueGllYXdodG9lemxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3MTgyOTAsImV4cCI6MjA5NDI5NDI5MH0.X8nRWvjKJSI4ddeYsQYFpKte_4h3X9iNnpa3RzVXwnI" //
 );
 
 async function loadJobs() {
@@ -11,8 +53,28 @@ async function loadJobs() {
     .from('jobs')
     .select('*');
 
-  console.log(data);
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  const container = document.getElementById("jobs");
+  container.innerHTML = "";
+
+  data.forEach(job => {
+    const div = document.createElement("div");
+    div.className = "job";
+    div.innerHTML = `
+      <h3>${job.title}</h3>
+      <p>${job.company}</p>
+      <button>Lamar</button>
+    `;
+    container.appendChild(div);
+  });
 }
 
 loadJobs();
 </script>
+
+</body>
+</html>
