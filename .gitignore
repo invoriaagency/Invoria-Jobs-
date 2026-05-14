@@ -1,53 +1,32 @@
-// Invoria Jobs - Fullstack Starter (Frontend Next.js + Supabase backend)
-// Cara pakai:
-// 1. Upload ke GitHub
-// 2. Deploy ke Vercel
-// 3. Tambahkan ENV dari Supabase
+# dependencies
+/node_modules
 
-import { useState } from "react";
+# next.js build
+/.next/
+/out/
 
-export default function Home() {
-  const [role, setRole] = useState("user");
+# production
+/build
 
-  return (
-    <div className="min-h-screen bg-white text-blue-900 p-6">
-      <h1 className="text-3xl font-bold mb-4">Invoria Jobs</h1>
+# env files (PENTING BANGET)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-      <div className="mb-4">
-        <button onClick={() => setRole("user")} className="mr-2 p-2 bg-blue-900 text-white rounded">Pelamar</button>
-        <button onClick={() => setRole("company")} className="p-2 bg-yellow-500 text-white rounded">Perusahaan</button>
-      </div>
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-      {role === "user" ? <UserForm /> : <CompanyForm />}
-    </div>
-  );
-}
+# macOS
+.DS_Store
 
-function UserForm() {
-  return (
-    <div className="bg-gray-100 p-4 rounded">
-      <h2 className="text-xl mb-2">Registrasi Pelamar</h2>
-      <input placeholder="Email" className="block mb-2 p-2 w-full" />
-      <input placeholder="Password" type="password" className="block mb-2 p-2 w-full" />
-      <input placeholder="Nama" className="block mb-2 p-2 w-full" />
-      <input placeholder="Tanggal Lahir" type="date" className="block mb-2 p-2 w-full" />
-      <input placeholder="Domisili" className="block mb-2 p-2 w-full" />
-      <input type="file" className="block mb-2" />
-      <button className="bg-blue-900 text-white p-2 rounded">Daftar</button>
-    </div>
-  );
-}
+# windows
+Thumbs.db
 
-function CompanyForm() {
-  return (
-    <div className="bg-gray-100 p-4 rounded">
-      <h2 className="text-xl mb-2">Registrasi Perusahaan</h2>
-      <input placeholder="Email Perusahaan" className="block mb-2 p-2 w-full" />
-      <input placeholder="Password" type="password" className="block mb-2 p-2 w-full" />
-      <input placeholder="Nama Perusahaan" className="block mb-2 p-2 w-full" />
-      <input placeholder="Alamat" className="block mb-2 p-2 w-full" />
-      <textarea placeholder="Deskripsi" className="block mb-2 p-2 w-full" />
-      <button className="bg-yellow-500 text-white p-2 rounded">Daftar</button>
-    </div>
-  );
-}
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
