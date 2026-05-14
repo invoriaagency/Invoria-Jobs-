@@ -1,62 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Invoria Jobs</title>
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #f5f7fa;
-    }
-    header {
-      background: #0a66c2;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 24px;
-    }
-    .container {
-      padding: 40px;
-      text-align: center;
-    }
-    .job {
-      background: white;
-      padding: 20px;
-      margin: 20px auto;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    button {
-      background: #0a66c2;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-<header>🚀 Invoria Jobs</header>
+<script>
+const supabase = window.supabase.createClient(
+  "https://twhmsejnxieawhtoezli.supabase.co"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3aG1zZWpueGllYXdodG9lemxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg3MTgyOTAsImV4cCI6MjA5NDI5NDI5MH0.X8nRWvjKJSI4ddeYsQYFpKte_4h3X9iNnpa3RzVXwnI"
+);
 
-<div class="container">
-  <h2>Lowongan Terbaru</h2>
+async function loadJobs() {
+  const { data, error } = await supabase
+    .from('jobs')
+    .select('*');
 
-  <div class="job">
-    <h3>Frontend Developer</h3>
-    <p>PT Tech Indonesia</p>
-    <button>Lamar</button>
-  </div>
+  console.log(data);
+}
 
-  <div class="job">
-    <h3>UI/UX Designer</h3>
-    <p>Startup Digital</p>
-    <button>Lamar</button>
-  </div>
-
-</div>
-
-</body>
-</html>
+loadJobs();
+</script>
