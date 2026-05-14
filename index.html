@@ -44,11 +44,10 @@
 
 <div id="jobs"></div>
 
-<!-- ✅ SUPABASE (FIXED VERSION) -->
+<!-- ✅ SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  // 🔥 PENTING: pakai nama beda biar tidak bentrok
   const supabaseClient = window.supabase.createClient(
     "https://twhmsejnxieawhtoezli.supabase.co",
     "sb_publishable_vFOu1L_6oFGgCJg_Ra49ZQ_M2CUkssK"
@@ -58,6 +57,9 @@
     const { data, error } = await supabaseClient
       .from('jobs')
       .select('*');
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
 
     if (error) {
       console.log("ERROR:", error);
