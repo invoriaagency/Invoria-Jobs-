@@ -20,15 +20,6 @@
       padding: 20px;
       width: 300px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
     }
   </style>
 </head>
@@ -39,7 +30,6 @@
 
 <div id="jobs"></div>
 
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
@@ -67,7 +57,6 @@ async function loadJobs() {
     div.innerHTML = `
       <h3>${job.title}</h3>
       <p>${job.company}</p>
-      <button>Lamar</button>
     `;
     container.appendChild(div);
   });
