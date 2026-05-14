@@ -8,7 +8,7 @@
 # production
 /build
 
-# env files (PENTING BANGET)
+# env files
 .env.local
 .env.development.local
 .env.test.local
